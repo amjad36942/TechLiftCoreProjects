@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TechLiftCoreProjects.Models.DocHistory>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.casedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.caseDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.casedate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.caseDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DoctorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DoctorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DoctorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
